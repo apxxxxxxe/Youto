@@ -55,7 +55,7 @@
 //------------------------------------------------------------------------------
 //SHIORI3FW.AUTO_DATA_CONVERT
 //	1にするとAYA5と同等の処理になります。
-//	-SAORIの戻り値などの自動タイプ変換・自動的に¥0x01をカンマにする等の
+//	-SAORIの戻り値などの自動タイプ変換・自動的に\0x01をカンマにする等の
 //	処理が入ります。
 //	0にするとそれらの処理を行いません。
 //------------------------------------------------------------------------------
@@ -590,11 +590,11 @@ SHIORI3FW.MakeEmptyResponse
 	when "OnFirstBoot", "OnBoot", "OnWindowStateRestore", "OnGhostChanged"
 		// スコープ0/1の基本サーフィスを出す必要があるイベント
 		"SHIORI/3.0 200 OK%(C_CRLF)Sender: AYA%(C_CRLF)Charset: %(S_CHARSET)%(C_CRLF)/
-			Value: ¥0¥s[0]¥1¥s[10]¥e%(C_CRLF2)"
+			Value: \0\s[0]\1\s[10]\e%(C_CRLF2)"
 	when "OnClose"
 		// 終了指示を出す必要があるイベント
 		"SHIORI/3.0 200 OK%(C_CRLF)Sender: AYA%(C_CRLF)Charset: %(S_CHARSET)%(C_CRLF)/
-			Value: ¥0¥-¥e%(C_CRLF2)"
+			Value: \0\-\e%(C_CRLF2)"
 	others
 		// 上記以外では204を返送して良い
 		"SHIORI/3.0 204 No Content%(C_CRLF)Charset: %(S_CHARSET)%(C_CRLF2)"
@@ -805,7 +805,7 @@ SHIORI3FW.ExecuteDl2ToDll
 	// 拡張子dl2のファイルをリストに蓄積する　子ディレクトリ内も再帰的に処理する
 	_targets = IARRAY
 	foreach _files; _file {
-		if SUBSTR(_file, 0, 1) == '¥'
+		if SUBSTR(_file, 0, 1) == '\'
 			SHIORI3FW.ExecuteDl2ToDll(_argv[0] + _file)
 		else {
 			_s_path = SPLITPATH(_file)
@@ -816,7 +816,7 @@ SHIORI3FW.ExecuteDl2ToDll
 
 	// 拡張子dl2をdllへ名前変更する　旧dllは消去する
 	foreach _targets; _target {
-		_path = _argv[0] + '¥' + _target
+		_path = _argv[0] + '\' + _target
 		_dmy = FDEL(_path + '.dll')
 		_dmy = FRENAME(_path + '.dl2', _path + '.dll')
 	}
@@ -858,10 +858,10 @@ SHIORI3FW.StructInstalledGhostList
 	if !SHIORI3FW.IGLIST_MAX; return
 
 	// ghostディレクトリ配下のディレクトリを抽出
-	_filelist = FENUM('..¥..¥..')
+	_filelist = FENUM('..\..\..')
 	_dirlist  = IARRAY
 	foreach _filelist; _file {
-		if '¥' _in_ _file; _dirlist ,= _file
+		if '\' _in_ _file; _dirlist ,= _file
 	}
 	_dirnum = ARRAYSIZE(_dirlist)
 
@@ -887,7 +887,7 @@ SHIORI3FW.StructInstalledGhostList
 
 		// descript.txtから情報取得
 		_ghostname = SHIORI3FW.GetGhostNameFromDescriptTxt(/
-						'..¥..¥..' + _dirlist[StructGhostList.Index])
+						'..\..\..' + _dirlist[StructGhostList.Index])
 		// リストへ追加
 		if ARRAYSIZE(_ghostname) {
 			installedghostlist  ,= _ghostname[0]
@@ -904,7 +904,7 @@ SHIORI3FW.StructInstalledGhostList
 //------------------------------------------------------------------------------
 SHIORI3FW.GetGhostNameFromDescriptTxt
 {
-	if !FOPEN(_filename = "%_argv[0]¥ghost¥master¥descript.txt", "r")
+	if !FOPEN(_filename = "%_argv[0]\ghost\master\descript.txt", "r")
 		return
 
 	_ghostname = IARRAY
@@ -1230,7 +1230,7 @@ memoryavailvirtual { GETMEMINFO[4] }
 //******************************************************************************
 On_ShioriEcho
 {
-	'¥0Eval Result = ' + JOIN(EVAL(reference[0]),',')
+	'\0Eval Result = ' + JOIN(EVAL(reference[0]),',')
 }
 //******************************************************************************
 //SHIORI/3.0制御スクリプト for YAYA
@@ -1264,36 +1264,36 @@ OnSystemUnload.SHIORI3FW.OPTIONAL
 
 //------------------------------------------------------------------------------
 //関数名：SHIORI3FW.EscapeDangerousTags
-//機能　：危険なタグのみをエスケープ（¥付加）する。
+//機能　：危険なタグのみをエスケープ（\付加）する。
 //------------------------------------------------------------------------------
 SHIORI3FW.EscapeDangerousTags{
 	_txt=_argv[0]
-	_txt=REPLACE(_txt,'¥¥',ESCAPE_TAG_1)
-	_txt=REPLACE(_txt,'¥%',ESCAPE_TAG_2)
+	_txt=REPLACE(_txt,'\\',ESCAPE_TAG_1)
+	_txt=REPLACE(_txt,'\%',ESCAPE_TAG_2)
 	_txt=RE_REPLACE(_txt, /
-		'¥¥(?=(!¥[(' + /
+		'\\(?=(!\[(' + /
 		'updatebymyself|vanishbymyself|enter,passivemode|' + /
 		'leave,passivemode|lock,repaint|unlock,repaint|biff|' + /
 		'open,browser|open,mailer|raise)' + /
-		'.*?¥]|¥¥j¥[))' , /
-		'¥¥')
-	_txt=REPLACE(_txt,ESCAPE_TAG_2,'¥%')
-	_txt=REPLACE(_txt,ESCAPE_TAG_1,'¥¥')
+		'.*?\]|\\j\[))' , /
+		'\\')
+	_txt=REPLACE(_txt,ESCAPE_TAG_2,'\%')
+	_txt=REPLACE(_txt,ESCAPE_TAG_1,'\\')
 	_txt
 }
 
 //------------------------------------------------------------------------------
 //関数名：SHIORI3FW.EscapeAllTags
-//機能　：全てのさくらスクリプトタグをエスケープ（¥付加）する。
+//機能　：全てのさくらスクリプトタグをエスケープ（\付加）する。
 //------------------------------------------------------------------------------
 SHIORI3FW.EscapeAllTags{
 	_txt=_argv[0]
-	_txt=REPLACE(_txt,'¥¥',ESCAPE_TAG_1)
-	_txt=REPLACE(_txt,'¥%',ESCAPE_TAG_2)
-	_txt=REPLACE(_txt,'¥','¥¥')
-	_txt=REPLACE(_txt,'%','¥%')
-	_txt=REPLACE(_txt,ESCAPE_TAG_2,'¥%')
-	_txt=REPLACE(_txt,ESCAPE_TAG_1,'¥¥')
+	_txt=REPLACE(_txt,'\\',ESCAPE_TAG_1)
+	_txt=REPLACE(_txt,'\%',ESCAPE_TAG_2)
+	_txt=REPLACE(_txt,'\','\\')
+	_txt=REPLACE(_txt,'%','\%')
+	_txt=REPLACE(_txt,ESCAPE_TAG_2,'\%')
+	_txt=REPLACE(_txt,ESCAPE_TAG_1,'\\')
 	_txt
 }
 
@@ -1361,7 +1361,7 @@ SHIORI3FW.RefreshFMOTable : void
 		_ignorehwnd = sakurahwnd
 	}
 
-	//¥r¥nで分割
+	//\r\nで分割
 	_array = SPLIT(_result,C_CRLF)
 	_arraynum=ARRAYSIZE(_array)
 
@@ -1672,7 +1672,7 @@ EscapeText {AYATEMPLATE.EscapeText(_argv)}
 AYATEMPLATE.EscapeText
 {
 	_r = _argv[0]
-	if RE_SEARCH(_r,'[,"¥[¥]]') {
+	if RE_SEARCH(_r,'[,"\[\]]') {
 		'"' + REPLACE(_r,'"','""') + '"'
 	}
 	else {

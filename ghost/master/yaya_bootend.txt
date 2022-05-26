@@ -1,4 +1,5 @@
-FirstEvent {
+FirstEvent
+{
   一体化
   --
   "\0\s[1]……。\s[0]……やあ。君もいま、帰り？" + hituji("縁側の猫。") + "\0……。\n……こいつ、そこで見つけたの。\n勝手にしゃべるんだ。今みたいに、一言だけ。\n\n……一緒に聞いてく？\n" + hituji("入道雲。")
@@ -6,34 +7,56 @@ FirstEvent {
   "\![raise,OnFirstEventEnd]"
 }
 
-OnFirstEventEnd {
+OnFirstEventEnd
+{
   isFirstEventEnd = 1
 }
 
-OnGhostChanged{
-  OnBoot
-}
-
-OnBoot {
+OnBoot
+{
   if isFirstEventEnd {
     起動
-  } else {
+  }
+  else {
     FirstEvent
   }
 }
 
-起動 {
+OnGhostChanged
+{
+  if reference[0] == "ヨウト" && reference[2] == "思い出の、" {
+    "\0\s[0]……あ、戻ってきた。" + hituji(ことば+"。")
+  }
+  else {
+    OnBoot
+  }
+}
+
+OnGhostChanging
+{
+  if reference[0] == "ヨウト" && reference[2] == "思い出の、" {
+    "\0\s[0]……どこ行くの？"
+  }
+  else {
+    OnClose
+  }
+}
+
+起動
+{
   一体化
   --
-  "\0\s[0]……来たんだね。" + hituji("（ことば）。")
-  "\0\s[0]……こんにちは。" + hituji("（ことば）。")
+  "\0\s[0]……来たんだね。" + hituji(ことば+"。")
+  "\0\s[0]……こんにちは。" + hituji(ことば+"。")
 }
 
-OnClose {
-  "\0\s[0]……バイバイ。" + hituji("（ことば）。")
+OnClose
+{
+  "\0\s[0]……バイバイ。" + hituji(ことば+"。")
 }
 
-一体化 {
+一体化
+{
   '\1\![set,alignmenttodesktop,free]\![move,0,0,0,0,left.top,left.top]\![set,sticky-window,1,0]'
 }
 

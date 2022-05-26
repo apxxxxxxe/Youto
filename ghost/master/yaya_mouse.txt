@@ -20,13 +20,17 @@ MouseDoubleClick_0Head
 //ここではランダムトークイベントにジャンプ
 MouseDoubleClick_0
 {
+  メニュー
+}
+
+MouseDoubleClick_0mofu
+{
   OnAiTalk
 }
 
-//サブキャラの当たり判定が無い部分をダブルクリック
-MouseDoubleClick_1
+MouseDoubleClick_0sheep
 {
-  "¥1¥s[10]¥0¥s[0]¥1サブキャラをダブルクリック。¥e"
+  OnAiTalk
 }
 
 //---------------------------------------------------------
@@ -79,7 +83,7 @@ MouseReaction_0Head
   "¥1¥s[10]¥0¥s[0]メインキャラ頭なで反応。¥e"
 }
 
-MouseReaction_
+MouseReaction_0
 {
   メニュー
 }
@@ -99,8 +103,9 @@ MouseReaction_0sheep
 //---------------------------------------------------------
 
 //キーを押されたら「KeyPress_(キー名称)」イベントにジャンプ
-OnKeyPress{
-  case reference[0]{
+OnKeyPress
+{
+  case reference[0] {
     when "m" {
       メニュー
     }

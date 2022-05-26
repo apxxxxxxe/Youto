@@ -1,0 +1,14 @@
+ghost\master\profile\
+ghost\master\descript.txt
+ghost\master\dic_boot_and_end.txt
+ghost\master\dic_input.txt
+ghost\master\dic_menu.txt
+ghost\master\dic_mouse.txt
+ghost\master\dic_randomtalk.txt
+ghost\master\dic_vanish.txt
+ghost\master\replace_after.txt
+ghost\master\satori.dll
+ghost\master\satori_conf.txt
+ghost\master\satori_license.txt
+ghost\master\satori_savebackup.txt
+ghost\master\satori_savedata.txt

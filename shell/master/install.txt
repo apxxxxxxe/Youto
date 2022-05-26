@@ -1,0 +1,4 @@
+Charset,ANSI
+type,shell
+name,SHLEEP
+directory,SHLEEP

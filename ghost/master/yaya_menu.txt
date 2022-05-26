@@ -1,0 +1,30 @@
+メニュー {
+  <<"
+  \0\_q
+  \![*]\q[トーク,ランダムトークメニュー]\n
+  \![*]\q[喋り間隔の変更φ（現在（喋り間隔）φ）,喋り間隔メニュー]\n
+  \![*]\q[閉じる,閉じるメニュー]\n
+  ">>
+}
+
+ランダムトークメニュー
+{
+  OnAiTalk
+}
+
+喋り間隔メニュー {
+  <<"
+  \0
+  ![*]q[６０秒にする,OnTalkIntervalSet,60]\n
+  ![*]q[１２０秒にする,OnTalkIntervalSet,120]\n
+  ![*]q[１８０秒にする,OnTalkIntervalSet,180]\n
+  ![*]q[３００秒にする,OnTalkIntervalSet,300]\n
+  ![*]q[黙ってて,OnTalkIntervalSet,0]
+  ">>
+}
+
+OnTalkIntervalSet {
+  talkInterval = reference[0]
+  メニュー
+}
+

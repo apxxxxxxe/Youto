@@ -112,6 +112,9 @@ OnKeyPress
     when "t" {
       OnAiTalk
     }
+    when "r" {
+      "リロードします\![change,ghost,思い出の、]"
+    }
   }
 }
 

@@ -15,8 +15,8 @@ menu.sidebar.bitmap.filename,menu_sidebar.png
 
 sakura.balloon.offsetx,40
 sakura.balloon.offsety,20
-kero.balloon.offsetx,-15
-kero.balloon.offsety,152
+kero.balloon.offsetx,-23
+kero.balloon.offsety,97
 
 sakura.bindgroup98.name,☆,ほうたい
 sakura.bindgroup99.name,★,ちのり

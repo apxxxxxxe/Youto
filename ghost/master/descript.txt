@@ -7,10 +7,10 @@ kero.name,
 
 craftman,ape
 craftmanw,ape
+craftmanurl,https://apxxxxxxe.github.io/ukagaka/
 
 shiori,yaya.dll
 
-craftmanurl,https://github.com/apxxxxxxe
 homeurl,https://raw.githubusercontent.com/apxxxxxxe/Youto/main/
 
 //タスクトレイアイコン指定（コメントアウト中）

@@ -22,9 +22,7 @@ OnFirstBoot
 OnKeyPress 
 {
   case reference[0] {
-    when "r"
-
-    {
+    when "r" {
       "リロードします\![change,ghost,思い出の、]"
     }
   }

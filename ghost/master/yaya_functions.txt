@@ -1,0 +1,155 @@
+//******************************************************************************
+//関数辞書
+//******************************************************************************
+
+//初期化処理 起動毎に呼び出される
+InitializeVariable
+{
+  GetProperties
+  --
+  lastresponce = systemuptime
+  touch_count = 0
+  last_touch_part = ""
+  first_touch = 0
+  isKeyBlocked = 0
+}
+
+//\1バルーンを\0サーフェスに追従させる
+一体化
+{
+  "\1\![set,alignmenttodesktop,free]\![move,0,0,0,0,left.top,left.top]\![set,sticky-window,1,0]"
+}
+
+PosOffset
+{
+  _offset = balloon_rows
+  _offset + "em"
+}
+
+//------------------------------------------------------------------------------
+//朝/昼/夜などをおおざっぱに調べる関数
+//------------------------------------------------------------------------------
+GetTimeSlot
+{
+  case hour {
+    when 22,23,0,1,2,3
+
+    {
+      "深夜"
+    }
+    when 4,5,6,7,8,9,10,11
+
+    {
+      "朝"
+    }
+    when 12,13
+
+    {
+      "昼"
+    }
+    when 14,15,16,17
+
+    {
+      "日中"
+    }
+    when 18,19,20,21
+
+    {
+      "夜"
+    }
+  }
+}
+
+GetProperties
+{
+  GetGhostInfo
+  --
+  GetBalloonInfo
+  --
+  GetShellInfo
+  --
+  // GetShellInfo後に処理する必要があるのでembedで呼ぶ
+  "\![embed,OnGetShellListInfo]"
+}
+
+GetGhostInfo
+{
+  "\![get,property,OnGetGhostInfo,currentghost.sakuraname]"
+}
+
+GetBalloonInfo
+{
+  "\![get,property,OnGetBalloonInfo,currentghost.balloon.name,currentghost.balloon.scope(0).lines,currentghost.balloon.scope(0).validwidth,currentghost.balloon.scope(0).char_width]"
+}
+
+GetShellInfo
+{
+  "\![get,property,OnGetShellInfo,currentghost.shelllist.current.name,currentghost.shelllist.count]"
+}
+
+OnGetGhostInfo
+{
+  //reference[0]: currentghost.sakuraname
+  sakura_name = reference[0]
+}
+
+OnGetBalloonInfo
+{
+  //reference[0]: currentghost.balloon.name
+  //reference[1]: currentghost.balloon.scope(0).lines
+  //reference[2]: currentghost.balloon.scope(0).validwidth.initial
+  //reference[3]: currentghost.balloon.scope(0).char_width
+
+  balloon_name = reference[0]
+  balloon_rows = reference[1]
+
+  ERASEVAR("forced_balloon_cols")
+  case balloon_name {
+    when "SSPデフォルト+" {
+      balloon_cols = 24
+    }
+    others
+    {
+      _zenkaku_char_width = reference[3] * 2
+      balloon_cols = TOINT(reference[2] / _zenkaku_char_width)
+    }
+  }
+}
+
+OnGetShellInfo
+{
+  //reference[0]: currentghost.shelllist.current.name
+  //reference[1]: currentghost.shelllist.count
+  shell_name = reference[0]
+  shell_count = reference[1]
+}
+
+OnGetShellListInfo
+{
+  _cmd = "\![get,property,OnGetShellListInfoAfter,"
+  for _i = 0; _i < shell_count; _i++ {
+    _cmd += "currentghost.shelllist.index(" + _i + ").name"
+  }
+  _cmd += "]"
+
+  _cmd
+}
+
+OnGetShellListInfoAfter
+{
+  shell_list = IARRAY
+  for _i = 0; _i < ARRAYSIZE(reference); _i++ {
+    shell_list = (shell_list,reference[_i])
+  }
+}
+
+OnBalloonChange
+{
+  GetBalloonInfo
+}
+
+OnSurfaceChange
+{
+  current_surface = reference[0]
+}
+

@@ -11,6 +11,7 @@ OnGhostLoad
 
 OnFirstBoot
 {
+  aitalkinterval = 180
   OnBoot
 }
 
@@ -56,7 +57,7 @@ FirstEvent
   勝手にしゃべるんだ。今みたいに、一言だけ。\n/
   \n/
   \s[0]……いっしょに聞いてく？\n/
-  " + hituji("入道雲。")
+  \1\c" + hituji("入道雲。")
   --
   "\![raise,OnFirstEventEnd]"
 }

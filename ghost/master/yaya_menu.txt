@@ -37,7 +37,7 @@
   \![*]\q[120秒にする,OnTalkIntervalSet,120]\n/
   \![*]\q[180秒にする,OnTalkIntervalSet,180]\n/
   \![*]\q[300秒にする,OnTalkIntervalSet,300]\n/
-  \![*]\q[黙ってて,OnTalkIntervalSet,0]\n/
+  \![*]\q[喋らない,OnTalkIntervalSet,0]\n/
   \n/
   \![*]\q[戻る,メニュー]\n/
   "

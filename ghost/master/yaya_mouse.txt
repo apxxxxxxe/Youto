@@ -10,14 +10,7 @@ OnMouseDoubleClick
   EVAL("MouseDoubleClick_%(reference[3])%(reference[4])")
 }
 
-//メインキャラの頭をダブルクリック
-MouseDoubleClick_0Head
-{
-  "\1\s[10]\0\s[0]メインキャラの頭をダブルクリック。"
-}
-
 //メインキャラの当たり判定が無い部分をダブルクリック
-//ここではランダムトークイベントにジャンプ
 MouseDoubleClick_0
 {
   メニュー
@@ -74,13 +67,6 @@ OnMouseMove
     // 定義された部位はどこも撫でられていない
     stroke = 0
   }
-}
-
-//メインキャラ頭なで反応トーク
-//イベント名は「MouseReaction_(キャラ番号)(当たり判定識別子)」
-MouseReaction_0Head
-{
-  "\1\s[10]\0\s[0]メインキャラ頭なで反応。"
 }
 
 MouseReaction_0

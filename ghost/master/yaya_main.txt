@@ -157,39 +157,32 @@ OnUserInput
 //消滅指示
 OnVanishSelecting
 {
-  "\1\s[10]\0\s[0]ゴーストアンインストール指示。\e"
+  "\1\s[10]\0\s[0]……ほんとに？\e"
 }
 
 //消滅中止（確認ダイアログでNOを選んだ）
 OnVanishCancel
 {
-  "\1\s[10]\0\s[0]ゴーストアンインストール中止。\e"
+  "\1\s[10]\0\s[2]……冗談にしてはきついよ。\e" + hituji(ことば+"。")
 }
 
 //ダブルクリックで消滅中止
 OnVanishButtonHold
 {
-  "\1\s[10]\0\s[0]ダブルクリックでゴーストアンインストール中止。\e"
+  "\1踏みとどまった。\s[10]\0\s[0]……？どうしたの。\e"
 }
 
 //消滅実行（確認ダイアログでYESを選んだ）
 //消滅後は他のゴーストにランダム交代
 OnVanishSelected
 {
-  "\1\s[10]\0\s[0]ゴーストアンインストール実行。\w9\w9\w9\e"
+  "\1\s[10]\0\s[0]…………。そっか。\nでも、ここで合わなくても、\nまた学校で会うかもね。そのときは、よろしく。\nじゃあね、ありがとう。……バイバイ。" + hituji(ことば+"。")
 }
 
 //他のゴーストが消滅し自分に交代（省略するとOnGhostChanged）（自ゴースト起動）
 OnVanished
 {
-  //ベースウェアによってはreference[0]の中身が空の事もあるようなので
-  if reference[0] == "" {
-    "\1\s[10]\0\s[0]ゴースト消滅より交代。\e"
-  }
-  else {
-    //reference[0]はsakura.name
-    "\1\s[10]\0\s[0]%(EscapeAllTags(reference[0]))の消滅より交代。\e"
-  }
+  "\1\s[10]\0\s[0]こんにちは……？\n……難しい顔してる。どうしたの？"
 }
 
 //---------------------------------------------------------
@@ -229,13 +222,14 @@ OnMinuteChange
 //シェル変更開始
 OnShellChanging
 {
-  "\1\s[10]\0\s[0]シェルを『%(EscapeAllTags(reference[0]))』に変更します。\e"
+  "\1\s[10]\0\s[0]え、着替えろって？ここで？\e"
 }
 
 //シェル変更完了
 OnShellChanged
 {
-  "\1\s[10]\0\s[0]シェルを『%(EscapeAllTags(reference[0]))』に変更しました。\e"
+  "\0\s[10]……\1\s[10]\0\s[2]隠れられる場所があってよかったよ。\n/
+  \s[0]それで、どうだろ？\s[1]似合ってるかな。…\s[3]それなら良かった。" + hituji(ことば+"。")
 }
 
 //---------------------------------------------------------
@@ -270,11 +264,8 @@ On_sakura.recommendbuttoncaption
 On_sakura.recommendsites
 {
   "/
-  サイトタイトル1%(CHR(1))/
-  http://......./%(CHR(2))/
-
-  サイトタイトル2%(CHR(1))/
-  http://......./%(CHR(2))/
+  Word Cascade%(CHR(1))/
+  https://river.tango-gacha.com/%(CHR(2))/
   "
 }
 
@@ -289,11 +280,8 @@ On_sakura.portalbuttoncaption
 On_sakura.portalsites
 {
   "/
-  サイトタイトル1%(CHR(1))/
-  http://......./%(CHR(2))/
-
-  サイトタイトル2%(CHR(1))/
-  http://......./%(CHR(2))/
+  配布サイト%(CHR(1))/
+  https://apxxxxxxe.github.io/ukagaka/%(CHR(2))/
   "
 }
 

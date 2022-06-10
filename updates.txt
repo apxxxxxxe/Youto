@@ -1,6 +1,6 @@
 charset,UTF-8
 file,delete.txtda0d48485486b925e4710e6940405fbesize=420date=2012-12-21T00:00:00
-file,ghost/master/descript.txtf67d5936bc611184e86d55a23ff55483size=334date=2012-12-21T00:00:00
+file,ghost/master/descript.txtb9dbf3b939a57a68acbfe6d24aadbb46size=358date=2012-12-21T00:00:00
 file,ghost/master/icon.ico817a1a2a0ea3422e2117e8b2fdabb78fsize=1406date=2012-12-21T00:00:00
 file,ghost/master/icon_minimize.icoa0ec4e0b8286bdae0d48e37fc1d64da4size=1406date=2012-12-21T00:00:00
 file,ghost/master/yaya.dll58fc69ef315965ef7328a69476767006size=876544date=2012-12-21T00:00:00
@@ -25,6 +25,7 @@ file,shell/master/menu_sidebar.pngf5edd2bb83a9cebdc28c803831a294b1size=115dat
 file,shell/master/readme.txtdd37c590ebfd743cdec0157e14511bfcsize=6534date=2012-12-21T00:00:00
 file,shell/master/shleepbanner.pngb300de4d4b40f7ec2b303ae7ddeef972size=26689date=2012-12-21T00:00:00
 file,shell/master/shleeppre.pngf190b69c7edfd39314fd6662d51950aasize=105615date=2012-12-21T00:00:00
+file,shell/master/surface0.apng7155465faaba880c903fdc57a1c6b8e5size=103258date=2012-12-21T00:00:00
 file,shell/master/surface0.png37fee3b97be851897ba39905fe58b980size=84611date=2012-12-21T00:00:00
 file,shell/master/surface10.pngb1c0804e538937ad11f96b53109e5ebdsize=488date=2012-12-21T00:00:00
 file,shell/master/surface1001.pngee8852df6f6b06094be3e653f2db1a1asize=1406date=2012-12-21T00:00:00

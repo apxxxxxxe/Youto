@@ -17,3 +17,5 @@ icon,icon.ico
 icon.minimize,icon_minimize.ico
 
 sstp.allowunspecifiedsend,1
+
+readme.charset,UTF-8

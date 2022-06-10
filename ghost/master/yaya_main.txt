@@ -182,6 +182,8 @@ OnVanishSelected
 //他のゴーストが消滅し自分に交代（省略するとOnGhostChanged）（自ゴースト起動）
 OnVanished
 {
+  一体化
+  --
   "\1\s[10]\0\s[0]こんにちは……？\n……難しい顔してる。どうしたの？"
 }
 

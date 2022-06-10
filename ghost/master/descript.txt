@@ -13,7 +13,7 @@ shiori,yaya.dll
 
 homeurl,https://raw.githubusercontent.com/apxxxxxxe/Youto/main/
 
-//タスクトレイアイコン指定（コメントアウト中）
-//icon,icon.ico
+icon,icon.ico
+icon.minimize,icon_minimize.ico
 
 sstp.allowunspecifiedsend,1

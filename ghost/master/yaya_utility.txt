@@ -8,13 +8,13 @@
 //インストール中
 OnInstallBegin
 {
-  "\0\s[1]\1\s[10]≪インストール開始≫\e"
+  "\0\s[1]\1\s[10](インストール開始)\e"
 }
 
 //インストール完了
 OnInstallComplete
 {
-  "\0\s[1]\1\s[10]≪インストール完了≫\n\n[half]"
+  "\0\s[1]\1\s[10](インストール完了)\n\n[half]"
   --
   case reference[0] {
     when 'shell'			; 'シェル'
@@ -91,7 +91,7 @@ InstallCompleteClose
 //インストール失敗
 OnInstallFailure
 {
-  "\0\s[1]\1\s[10]≪インストール失敗≫\n\n[half]失敗理由："
+  "\0\s[1]\1\s[10](インストール失敗)\n\n[half]失敗理由："
   --
   case reference[0] {
     when 'unlha32'			; "unlha32ロード失敗"
@@ -109,7 +109,7 @@ OnInstallFailure
 //インストール拒否（他のゴーストのためのアーカイブだった）
 OnInstallRefuse
 {
-  "\0\s[1]\1\s[10]≪『%(EscapeAllTags(reference[0]))』専用アーカイブのためインストール中止≫\e"
+  "\0\s[1]\1\s[10](『%(EscapeAllTags(reference[0]))』専用アーカイブのためインストール中止)\e"
 }
 
 //---------------------------------------------------------
@@ -119,7 +119,7 @@ OnInstallRefuse
 //メールチェック開始
 OnBIFFBegin
 {
-  "\0\s[1]\1\s[10]≪新着メールチェック開始≫\n\n[half]/
+  "\0\s[1]\1\s[10](新着メールチェック開始)\n\n[half]/
   接続先：%(EscapeAllTags(reference[2]))\e"
 }
 
@@ -130,7 +130,7 @@ OnBIFFComplete
 
   {
     //合計メール数0
-    "\0\s[1]\1\s[10]≪新着メールなし≫\n/
+    "\0\s[1]\1\s[10](新着メールなし)\n/
     メール数合計0通\n\n[half]/
     接続先：%(EscapeAllTags(reference[2]))\e"
 
@@ -139,7 +139,7 @@ OnBIFFComplete
 
   {
     //新着メールあり
-    "\0\s[1]\1\s[10]≪新着メール%(reference[3])通≫\n/
+    "\0\s[1]\1\s[10](新着メール%(reference[3])通)\n/
     メール数合計%(reference[0])通／%(reference[1])byte\n\n[half]/
     接続先：%(EscapeAllTags(reference[2]))\n\n/
     ■\q[メーラーを開く,OpenMailer]　/
@@ -150,7 +150,7 @@ OnBIFFComplete
 
   {
     //新着メールなし
-    "\0\s[1]\1\s[10]≪新着メールなし≫\n/
+    "\0\s[1]\1\s[10](新着メールなし)\n/
     メール数合計%(reference[0])通／%(reference[1])byte\n\n[half]/
     接続先：%(EscapeAllTags(reference[2]))\n\n/
     ■\q[メーラーを開く,OpenMailer]　/
@@ -175,7 +175,7 @@ CancelOpenMailer
 //メールチェック失敗
 OnBIFFFailure
 {
-  "\0\s[1]\1\s[10]≪メールチェック失敗≫/
+  "\0\s[1]\1\s[10](メールチェック失敗)/
   \n\n[half]失敗理由："
   --
   case reference[0] {
@@ -197,25 +197,7 @@ OnBIFFFailure
 //ゴーストネットワーク更新開始
 OnUpdateBegin
 {
-  "\0\s[1]\1\s[10]≪ネットワーク更新開始≫\e"
-}
-
-//ゴースト以外のネットワーク更新開始（ゴーストと共通で良いなら省略可）
-OnUpdateOtherBegin
-{
-  "\0\s[1]\1\s[10]≪"
-  --
-  case reference[3] {
-    when 'shell'			; 'シェル'
-    when 'balloon'			; 'バルーン'
-    when 'headline'			; 'ヘッドライン'
-    when 'plugin'			; 'プラグイン'
-    when 'baseware'			; 'ベースウェア'
-    others				; (EscapeAllTags(reference[3]))
-
-  }
-  --
-  "『%(EscapeAllTags(reference[0]))』ネットワーク更新開始≫\e"
+  "\0\s[1]\1\s[10](ネットワーク更新開始)\e"
 }
 
 //ネットワーク更新準備完了
@@ -223,24 +205,24 @@ OnUpdateReady
 {
   //「On_useorigin1」の設定により0から数えるため+1
 
-  "\0\s[1]\1\s[10]≪ダウンロードファイル数 計%((TOINT(reference[0])) + 1)個≫\e"
+  "\0\s[1]\1\s[10](ダウンロードファイル数 計%((TOINT(reference[0])) + 1)個)\e"
 }
 
 //ネットワーク更新終了
 OnUpdateComplete
 {
-  if reference[0] == "non\e"
+  if reference[0] == "none"
 
   {
     //更新すべきファイルが無かった
-    "\0\s[1]\1\s[10]≪更新ファイルなし≫\e"
+    "\0\s[1]\1\s[10](更新ファイルなし)\e"
 
   }
   else
 
   {
     //実際に更新が完了した
-    "\0\s[1]\1\s[10]≪ネットワーク更新完了≫\e"
+    "\0\s[1]\1\s[10](ネットワーク更新完了)\e"
 
   }
 }
@@ -248,7 +230,7 @@ OnUpdateComplete
 //ネットワーク更新失敗
 OnUpdateFailure
 {
-  "\0\s[1]\1\s[10]≪ネットワーク更新失敗≫\n\n[half]/
+  "\0\s[1]\1\s[10](ネットワーク更新失敗)\n\n[half]/
   失敗理由："
   --
   case TOSTR(reference[0]) {
@@ -268,7 +250,7 @@ OnUpdateFailure
 //ネットワーク更新 ダウンロード開始
 OnUpdate.OnDownloadBegin
 {
-  "\0\s[1]\1\s[10]≪『%(EscapeAllTags(reference[0]))』ダウンロード≫\e"
+  // "\0\s[1]\1\s[10](『%(EscapeAllTags(reference[0]))』ダウンロード)\e"
 }
 
 //更新時間短縮のためMD5値照合トークは省略しています。
@@ -277,20 +259,20 @@ OnUpdate.OnDownloadBegin
 //ネットワーク更新 MD5値照合開始
 OnUpdate.OnMD5CompareBegin
 {
-"\0\s[1]\1\s[10]≪MD5値照合開始≫\e"
+"\0\s[1]\1\s[10](MD5値照合開始)\e"
 }
 
 //ネットワーク更新 MD5値一致
 OnUpdate.OnMD5CompareComplete
 {
-"\0\s[1]\1\s[10]≪MD5値一致≫\e"
+"\0\s[1]\1\s[10](MD5値一致)\e"
 }
 */
 
 //ネットワーク更新 MD5値不一致
 OnUpdate.OnMD5CompareFailure
 {
-  "\0\s[1]\1\s[10]≪MD5値不一致≫\e"
+  "\0\s[1]\1\s[10](MD5値不一致)\e"
 }
 
 //---------------------------------------------------------
@@ -300,7 +282,7 @@ OnUpdate.OnMD5CompareFailure
 //ヘッドラインセンス開始
 OnHeadlinesenseBegin
 {
-  "\0\s[1]\1\s[10]≪ヘッドラインセンス『%(EscapeAllTags(reference[0]))』開始≫\e"
+  "\0\s[1]\1\s[10](ヘッドラインセンス『%(EscapeAllTags(reference[0]))』開始)\e"
 }
 
 //ヘッドライン読み上げ
@@ -355,13 +337,13 @@ HeadlineCancel
 //ヘッドライン更新が無かった
 OnHeadlinesenseComplete
 {
-  "\0\s[1]\1\s[10]≪ヘッドラインセンス『%(EscapeAllTags(reference[0]))』更新なし≫\e"
+  "\0\s[1]\1\s[10](ヘッドラインセンス『%(EscapeAllTags(reference[0]))』更新なし)\e"
 }
 
 //ヘッドラインセンス失敗
 OnHeadlinesenseFailure
 {
-  "\0\s[1]\1\s[10]≪ヘッドラインセンス失敗≫\n\n[half]/
+  "\0\s[1]\1\s[10](ヘッドラインセンス失敗)\n\n[half]/
   失敗理由："
   --
   //ヘッドラインの「解析不能」は主にページデザイン変更が原因
@@ -384,14 +366,14 @@ OnHeadlinesenseFailure
 //省略するとOnHeadlinesenseBeginが呼ばれる
 OnRSSBegin
 {
-  "\0\s[1]\1\s[10]≪RSS『%(EscapeAllTags(reference[0]))』取得開始≫\e"
+  "\0\s[1]\1\s[10](RSS『%(EscapeAllTags(reference[0]))』取得開始)\e"
 }
 
 //RSS失敗
 //省略するとOnHeadlinesenseFailureが呼ばれる
 OnRSSFailure
 {
-  "\0\s[1]\1\s[10]≪RSS取得失敗≫\n\n[half]/
+  "\0\s[1]\1\s[10](RSS取得失敗)\n\n[half]/
   失敗理由："
   --
   if	'download' _in_ reference[0]	; "ファイル取得不可"
@@ -408,25 +390,25 @@ OnRSSFailure
 //updates2.dau作成開始
 OnUpdatedataCreating
 {
-  "\0\s[1]\1\s[10]≪アップデートデータファイル作成開始≫\e"
+  "\0\s[1]\1\s[10](アップデートデータファイル作成開始)\e"
 }
 
 //updates2.dau作成完了
 OnUpdatedataCreated
 {
-  "\0\s[1]\1\s[10]≪アップデートデータファイル作成完了≫\e"
+  "\0\s[1]\1\s[10](アップデートデータファイル作成完了)\e"
 }
 
 //NARファイル作成開始
 OnNarCreating
 {
-  "\0\s[1]\1\s[10]≪NARファイル作成開始≫\n\n[half]『%(EscapeAllTags(reference[0]))』\n\_qPath > %(EscapeAllTags(reference[1]))\_q\e"
+  "\0\s[1]\1\s[10](NARファイル作成開始)\n\n[half]『%(EscapeAllTags(reference[0]))』\n\_qPath > %(EscapeAllTags(reference[1]))\_q\e"
 }
 
 //NARファイル作成完了
 OnNarCreated
 {
-  "\0\s[1]\1\s[10]≪NARファイル作成完了≫\n\n[half]"
+  "\0\s[1]\1\s[10](NARファイル作成完了)\n\n[half]"
   --
   case reference[2] {
     when 'shell'			; 'シェル'
@@ -453,6 +435,6 @@ OnNarCreated
 
 OnURLDropping
 {
-  "\0\s[1]\1\s[10]≪以下のURLのデータを取得中≫\n\_q%(EscapeAllTags(reference[0]))\_q\e"
+  "\0\s[1]\1\s[10](以下のURLのデータを取得中)\n\_q%(EscapeAllTags(reference[0]))\_q\e"
 }
 

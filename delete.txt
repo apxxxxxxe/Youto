@@ -1,5 +1,4 @@
 ghost\master\profile\
-ghost\master\descript.txt
 ghost\master\dic_boot_and_end.txt
 ghost\master\dic_input.txt
 ghost\master\dic_menu.txt

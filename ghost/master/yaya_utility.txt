@@ -85,7 +85,7 @@ ChangeLastInstalledBalloon
 //インストールしたものを使用しない
 InstallCompleteClose
 {
-  "1s[10]b[-1]0s[0]b[-1]\e"
+  "\1\s[10]\b[-1]\0\s[0]b[-1]\e"
 }
 
 //インストール失敗

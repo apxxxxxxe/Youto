@@ -3,13 +3,13 @@ file,delete.txt46b2ae71a4a45b3ceb5f15113ab9ce9esize=393date=2012-12-21T00:00:
 file,ghost/master/descript.txtb9dbf3b939a57a68acbfe6d24aadbb46size=358date=2012-12-21T00:00:00
 file,ghost/master/icon.ico817a1a2a0ea3422e2117e8b2fdabb78fsize=1406date=2012-12-21T00:00:00
 file,ghost/master/icon_minimize.icoa0ec4e0b8286bdae0d48e37fc1d64da4size=1406date=2012-12-21T00:00:00
-file,ghost/master/yaya.dll58fc69ef315965ef7328a69476767006size=876544date=2012-12-21T00:00:00
+file,ghost/master/yaya.dll5c438e37e9fa5b97bb16c9b7ed2b25d7size=880640date=2012-12-21T00:00:00
 file,ghost/master/yaya.txt5457d274ec43dc6ecb486cd2fc40330csize=1886date=2012-12-21T00:00:00
 file,ghost/master/yaya_bootend.txta42ef52485784cf43e611bc22dec5c42size=1935date=2012-12-21T00:00:00
 file,ghost/master/yaya_emerg.txt36f349a60760d943d7e86c74ce046fb0size=163date=2012-12-21T00:00:00
 file,ghost/master/yaya_emerg_dic.txtad6a6da7457376e54e40d8c44fd4d1e2size=805date=2012-12-21T00:00:00
 file,ghost/master/yaya_functions.txt6628fa3de20ae77236c26a0885125e94size=3042date=2012-12-21T00:00:00
-file,ghost/master/yaya_main.txtf957efb8f861cac34ac16ba88c24df69size=9259date=2012-12-21T00:00:00
+file,ghost/master/yaya_main.txta9dd83f48af64192f139c932697ecf3esize=9265date=2012-12-21T00:00:00
 file,ghost/master/yaya_menu.txtd28ef8b384f0e1a0d219dd9a7ed7a920size=1084date=2012-12-21T00:00:00
 file,ghost/master/yaya_mouse.txtdb78ff2b2a15d764df969d9eb0e85770size=2561date=2012-12-21T00:00:00
 file,ghost/master/yaya_randomtalk.txt5b11a96bc76b2a6d89caee26158486c7size=11215date=2012-12-21T00:00:00

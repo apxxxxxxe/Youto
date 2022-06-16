@@ -17,3 +17,7 @@
 作成にあたって以下のテンプレートとシェルを使用させていただきました。この場を借りてお礼申し上げます。
 - YAYA辞書テンプレート「SimpleYAYAテンプレート」
 - フリーシェル「SHLEEP」
+
+### ダウンロード  
+[![omoideno.nar](https://img.shields.io/github/downloads/apxxxxxxe/Youto/total?color=%23d196bb&label=omoideno.nar&logo=github)](https://github.com/apxxxxxxe/Youto/releases/latest/download/omoideno.nar)   
+※narファイルは最新でないことがあります。インストール後ネットワーク更新を行ってください。  

@@ -22,6 +22,7 @@ dic, yaya_menu.txt
 dic, yaya_mouse.txt
 dic, yaya_randomtalk.txt
 dic, yaya_functions.txt
+dic, yaya_webclap.txt
 
 //------------------------------------------------------------------------------
 //セーブファイル暗号化

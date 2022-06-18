@@ -1,0 +1,45 @@
+//Web拍手------------------------------------------------------------------
+
+OnWebClap
+{
+  "\![open,inputbox,OnWebClapMessage,,--limit=1000]/
+  \_q拍手メッセージが作者に送信されます。\n/
+  バグ報告や要望、感想はこちらにお願いします。"
+}
+
+OnWebClapMessage
+{
+  if reference[0] == "" {
+    '\_q送信を中止しました'
+  }
+  else {
+    "\![execute,http-post,http://clap.webclap.com/clap.php?id=apxxxxxxe,--param=message_body='Youto:%(reference[0])',--async=webclap]"
+  }
+}
+
+拍手送信完了
+{
+  "\_q拍手メッセージを送信しました。"
+  WebClapMessage = ''
+}
+
+拍手送信失敗
+{
+  "\_q送信に失敗しました。\n%(reference[4])"
+  WebClapMessage = ''
+}
+
+OnExecuteHTTPComplete
+{
+  if (reference[1] == 'webclap') {
+    拍手送信完了
+  }
+}
+
+OnExecuteHTTPFailure
+{
+  if (reference[1] == 'webclap') {
+    拍手送信失敗
+  }
+}
+

@@ -7,7 +7,7 @@ kero.name,
 
 craftman,ape
 craftmanw,ape
-craftmanurl,https://apxxxxxxe.github.io/ukagaka/
+craftmanurl,https://apxxxxxxe.github.io/ukagaka
 
 shiori,yaya.dll
 

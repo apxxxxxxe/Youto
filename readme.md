@@ -1,4 +1,4 @@
-[![omoideno.nar](https://img.shields.io/github/downloads/apxxxxxxe/Youto/total?color=%23d196bb&label=omoideno.nar&logo=github)](https://github.com/apxxxxxxe/Youto/releases/latest/download/omoideno.nar) 
+[![omoideno.nar](https://img.shields.io/github/v/release/apxxxxxxe/Youto?color=%23d196bb&label=omoideno.nar&logo=github)](https://github.com/apxxxxxxe/Youto/releases/latest/download/omoideno.nar) 
 [![commits](https://img.shields.io/github/commit-activity/m/apxxxxxxe/Youto?color=%23d196bb)](https://github.com/apxxxxxxe/Youto/commits/main)
 [![commits](https://img.shields.io/tokei/lines/github/apxxxxxxe/Youto?color=%23d196bb)](https://github.com/apxxxxxxe/Youto/commits/main)
 
@@ -19,5 +19,5 @@
 - フリーシェル「SHLEEP」
 
 ### ダウンロード  
-[![omoideno.nar](https://img.shields.io/github/downloads/apxxxxxxe/Youto/total?color=%23d196bb&label=omoideno.nar&logo=github)](https://github.com/apxxxxxxe/Youto/releases/latest/download/omoideno.nar)   
+[![omoideno.nar](https://img.shields.io/github/v/release/apxxxxxxe/Youto?color=%23d196bb&label=omoideno.nar&logo=github)](https://github.com/apxxxxxxe/Youto/releases/latest/download/omoideno.nar)   
 ※narファイルは最新でないことがあります。インストール後ネットワーク更新を行ってください。  

@@ -12,7 +12,7 @@ file,ghost/master/yaya_functions.txt6628fa3de20ae77236c26a0885125e94size=3042
 file,ghost/master/yaya_main.txta9dd83f48af64192f139c932697ecf3esize=9265date=2012-12-21T00:00:00
 file,ghost/master/yaya_menu.txt54ec4b2f701dda849b9cb2d6a6e71c78size=1119date=2012-12-21T00:00:00
 file,ghost/master/yaya_mouse.txtdb78ff2b2a15d764df969d9eb0e85770size=2561date=2012-12-21T00:00:00
-file,ghost/master/yaya_randomtalk.txt5b11a96bc76b2a6d89caee26158486c7size=11215date=2012-12-21T00:00:00
+file,ghost/master/yaya_randomtalk.txt24511a461b47299439b2dd8a991d29b8size=11724date=2012-12-21T00:00:00
 file,ghost/master/yaya_shiori3.dic52d5d510f8926b8dbe2d3570077fdde0size=50180date=2012-12-21T00:00:00
 file,ghost/master/yaya_utility.txt0c8097d1ed65a6388d0e0bec9e91971fsize=12021date=2012-12-21T00:00:00
 file,ghost/master/yaya_webclap.txtfec67631ddc382fa1620c83b5b0dc349size=939date=2012-12-21T00:00:00

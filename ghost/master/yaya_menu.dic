@@ -1,0 +1,52 @@
+分数表示
+{
+  _minute = TOINT(_argv[0]/60)
+  if _minute != 0 {
+    _minute + "分"
+  }
+  --
+  _second = _argv[0] - _minute*60
+  if _second != 0 {
+    _second + "秒"
+  }
+}
+
+メニュー
+{
+  "/
+  \0\_q/
+  \![*]\q[トーク,ランダムトークメニュー]\n/
+  \![*]\q[喋り間隔の変更（現在" + 分数表示(aitalkinterval) + "）,喋り間隔メニュー]\n/
+  \![*]\q[Web拍手,OnWebClap]\n/
+  \![*]\q[閉じる,閉じるメニュー]\n/
+  "
+}
+
+ランダムトークメニュー
+{
+  OnAiTalk
+}
+
+喋り間隔メニュー
+{
+  "/
+  \0/
+  \![*]\q[10秒にする,OnTalkIntervalSet,10]\n/
+  \![*]\q[20秒にする,OnTalkIntervalSet,20]\n/
+  \![*]\q[30秒にする,OnTalkIntervalSet,30]\n/
+  \![*]\q[60秒にする,OnTalkIntervalSet,60]\n/
+  \![*]\q[120秒にする,OnTalkIntervalSet,120]\n/
+  \![*]\q[180秒にする,OnTalkIntervalSet,180]\n/
+  \![*]\q[300秒にする,OnTalkIntervalSet,300]\n/
+  \![*]\q[喋らない,OnTalkIntervalSet,0]\n/
+  \n/
+  \![*]\q[戻る,メニュー]\n/
+  "
+}
+
+OnTalkIntervalSet
+{
+  aitalkinterval = reference[0]
+  メニュー
+}
+

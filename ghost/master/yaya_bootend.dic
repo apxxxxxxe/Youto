@@ -1,0 +1,95 @@
+//------------------------------
+// 起動
+//------------------------------
+
+//ゴーストのロード
+//起動毎の変数の初期化などはここで
+OnGhostLoad
+{
+  InitializeVariable
+}
+
+OnFirstBoot
+{
+  aitalkinterval = 180
+  OnBoot
+}
+
+OnBoot
+{
+  一体化
+  --
+  if isFirstEventEnd {
+    "\0\s[0]……来たんだね。" + hituji(ことば+"。")
+    "\0\s[0]……こんにちは。" + hituji(ことば+"。")
+  }
+  else {
+    FirstEvent
+  }
+}
+
+OnGhostChanged
+{
+  一体化
+  --
+  if reference[0] == "ヨウト" && reference[2] == "思い出の、" {
+    "\0\s[0]……あ、戻ってきた。" + hituji(ことば+"。")
+  }
+  else {
+    OnBoot
+  }
+}
+
+OnGhostChanging
+{
+  if reference[0] == "ヨウト" && reference[2] == "思い出の、" {
+    "\0\s[0]……どこ行くの？"
+  }
+  else {
+    OnClose
+  }
+}
+
+FirstEvent
+{
+  "\0\s[1]……。\s[0]……こんにちは。君もいま、帰り？" + hituji("縁側の猫。") + "\0\n/
+  \s[1]……。……こいつ、そこで見つけたの。\n/
+  勝手にしゃべるんだ。今みたいに、一言だけ。\n/
+  \n/
+  \s[0]……いっしょに聞いてく？\n/
+  \1\c" + hituji("入道雲。")
+  --
+  "\![raise,OnFirstEventEnd]"
+}
+
+OnFirstEventEnd
+{
+  isFirstEventEnd = 1
+}
+
+//------------------------------
+// 終了
+//------------------------------
+
+//ゴーストのアンロード
+//終了毎変数の削除などはここで
+OnGhostUnload
+{
+  //なで反応で使用する変数の削除
+  ERASEVAR('stroke')
+  ERASEVAR('prev_reference4')
+  ERASEVAR('nade_prev')
+
+  //最終終了時刻。後で使うかもしれないので記録（省略可）
+  //（長期間起動しなかった時の反応等に）
+  LastCloseTime	= GETTIME
+}
+
+OnClose
+{
+  "\0\s[0]……バイバイ。" + hituji(ことば+"。")
+  "\0\s[0]……じゃあね。" + hituji(ことば+"。")
+  --
+  "\-"
+}
+

@@ -1,0 +1,106 @@
+//---------------------------------------------------------
+//マウスダブルクリック（省略可）
+//---------------------------------------------------------
+//当たり判定識別子に半角空白など関数名に使えない文字を使用しているとこのEVALを使用した方法は使えません。
+//他のマウス系イベントも同様。
+
+//クリックされたら「MouseDoubleClick_(キャラ番号)(当たり判定識別子)」イベントにジャンプ
+OnMouseDoubleClick
+{
+  EVAL("MouseDoubleClick_%(reference[3])%(reference[4])")
+}
+
+//メインキャラの当たり判定が無い部分をダブルクリック
+MouseDoubleClick_0
+{
+  メニュー
+}
+
+MouseDoubleClick_0mofu
+{
+  OnAiTalk
+}
+
+MouseDoubleClick_0sheep
+{
+  OnAiTalk
+}
+
+//---------------------------------------------------------
+//マウス移動（省略可）
+//---------------------------------------------------------
+
+OnMouseMove
+{
+  //なで反応
+  //（文Wiki記載「マウス反応を自然なものにする」を改変）
+  if reference[4] != "" {
+
+    //----どこかが撫でられている
+    if reference[4] == prev_reference4 {
+      _nade_interval = systemuptime - nade_prev
+
+      if _nade_interval > 1 {
+        //1秒以上間隔が空いたらカウンタをリセット
+        stroke = 0
+
+      }
+      nade_prev = systemuptime
+      stroke++
+
+      //撫でられた量が一定量に達したら「なでられている」と判断
+      //（「stroke >= *」の*の値が大きいほど反応が鈍くなる）
+      if stroke >= 96 {
+        //撫でられた。撫でられた部位を見てトークする
+        EVAL("MouseReaction_%(reference[3])%(reference[4])")
+        --
+        stroke = 0
+
+      }
+    }
+    else {
+      stroke = 0
+    }
+    prev_reference4 = reference[4]
+  }
+  else {
+    // 定義された部位はどこも撫でられていない
+    stroke = 0
+  }
+}
+
+MouseReaction_0
+{
+  メニュー
+}
+
+MouseReaction_0mofu
+{
+  OnAiTalk
+}
+
+MouseReaction_0sheep
+{
+  OnAiTalk
+}
+
+//---------------------------------------------------------
+//キー入力（省略可）
+//---------------------------------------------------------
+
+//キーを押されたら「KeyPress_(キー名称)」イベントにジャンプ
+OnKeyPress
+{
+  case reference[0] {
+    when "m" {
+      メニュー
+    }
+    when "t" {
+      OnAiTalk
+    }
+    when "r" {
+      "リロードします\![change,ghost,思い出の、]"
+    }
+  }
+}
+

@@ -3,7 +3,7 @@ type,ghost
 
 name,思い出の、
 sakura.name,ヨウト
-kero.name,
+kero.name,ひつじ
 
 craftman,ape
 craftmanw,ape

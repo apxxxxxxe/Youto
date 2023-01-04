@@ -1,6 +1,6 @@
 charset,UTF-8
 file,delete.txt46b2ae71a4a45b3ceb5f15113ab9ce9esize=393date=2012-12-21T00:00:00
-file,ghost/master/descript.txtb9dbf3b939a57a68acbfe6d24aadbb46size=358date=2012-12-21T00:00:00
+file,ghost/master/descript.txtaee9e99c64d06aca74ccf6d9b6a09adbsize=382date=2012-12-21T00:00:00
 file,ghost/master/icon.ico817a1a2a0ea3422e2117e8b2fdabb78fsize=1406date=2012-12-21T00:00:00
 file,ghost/master/icon_minimize.icoa0ec4e0b8286bdae0d48e37fc1d64da4size=1406date=2012-12-21T00:00:00
 file,ghost/master/yaya.dll56e3af56c88e696cea1f39d53b239cefsize=880640date=2012-12-21T00:00:00

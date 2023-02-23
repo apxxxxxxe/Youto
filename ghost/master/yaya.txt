@@ -15,14 +15,14 @@ dic, yaya_shiori3.dic	// YAYA:設定辞書。必ず最初に指定すること�
 //以下はテンプレート
 //------------------------------------------------------------------------------
 
-dic, yaya_main.txt			// メイン辞書
-dic, yaya_utility.txt			// ユーティリティ辞書
-dic, yaya_bootend.txt
-dic, yaya_menu.txt
-dic, yaya_mouse.txt
-dic, yaya_randomtalk.txt
-dic, yaya_functions.txt
-dic, yaya_webclap.txt
+dic, yaya_main.dic			// メイン辞書
+dic, yaya_utility.dic			// ユーティリティ辞書
+dic, yaya_bootend.dic
+dic, yaya_menu.dic
+dic, yaya_mouse.dic
+dic, yaya_randomtalk.dic
+dic, yaya_functions.dic
+dic, yaya_webclap.dic
 
 //------------------------------------------------------------------------------
 //セーブファイル暗号化

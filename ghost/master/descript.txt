@@ -3,10 +3,10 @@ type,ghost
 
 name,思い出の、
 sakura.name,ヨウト
-kero.name,
+kero.name,ひつじ
 
-craftman,ape
-craftmanw,ape
+craftman,HinoTsumi
+craftmanw,日野つみ
 craftmanurl,https://apxxxxxxe.github.io/ukagaka/
 
 shiori,yaya.dll

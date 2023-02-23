@@ -1,6 +1,6 @@
 charset,UTF-8
 file,delete.txt46b2ae71a4a45b3ceb5f15113ab9ce9esize=393date=2012-12-21T00:00:00
-file,ghost/master/descript.txtb9dbf3b939a57a68acbfe6d24aadbb46size=358date=2012-12-21T00:00:00
+file,ghost/master/descript.txtaee9e99c64d06aca74ccf6d9b6a09adbsize=382date=2012-12-21T00:00:00
 file,ghost/master/icon.ico817a1a2a0ea3422e2117e8b2fdabb78fsize=1406date=2012-12-21T00:00:00
 file,ghost/master/icon_minimize.icoa0ec4e0b8286bdae0d48e37fc1d64da4size=1406date=2012-12-21T00:00:00
 file,ghost/master/yaya.dll56e3af56c88e696cea1f39d53b239cefsize=880640date=2012-12-21T00:00:00
@@ -12,7 +12,7 @@ file,ghost/master/yaya_functions.txt6628fa3de20ae77236c26a0885125e94size=3042
 file,ghost/master/yaya_main.txta9dd83f48af64192f139c932697ecf3esize=9265date=2012-12-21T00:00:00
 file,ghost/master/yaya_menu.txt54ec4b2f701dda849b9cb2d6a6e71c78size=1119date=2012-12-21T00:00:00
 file,ghost/master/yaya_mouse.txtdb78ff2b2a15d764df969d9eb0e85770size=2561date=2012-12-21T00:00:00
-file,ghost/master/yaya_randomtalk.txt34b8560eaa062796de8663be28199b49size=11717date=2012-12-21T00:00:00
+file,ghost/master/yaya_randomtalk.txte5394dfc81978ed350efb8f6b17f577asize=12073date=2012-12-21T00:00:00
 file,ghost/master/yaya_shiori3.dic52d5d510f8926b8dbe2d3570077fdde0size=50180date=2012-12-21T00:00:00
 file,ghost/master/yaya_utility.txt0c8097d1ed65a6388d0e0bec9e91971fsize=12021date=2012-12-21T00:00:00
 file,ghost/master/yaya_webclap.txtfec67631ddc382fa1620c83b5b0dc349size=939date=2012-12-21T00:00:00
